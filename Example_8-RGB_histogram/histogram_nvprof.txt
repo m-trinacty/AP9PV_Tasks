@@ -1,0 +1,49 @@
+USING STREAMS
+==22300== Profiling application: ./Histogram ../lena.png 1
+==22300== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   58.52%  204.29us         3  68.096us  54.528us  81.920us  histogram(unsigned int*, unsigned char*, unsigned long, int, int)
+                   20.99%  73.279us         3  24.426us  23.936us  24.800us  [CUDA memcpy HtoD]
+                   16.56%  57.792us         9  6.4210us  1.5680us  15.808us  [CUDA memcpy DtoH]
+                    2.48%  8.6720us         3  2.8900us  2.8480us  2.9760us  createImage(unsigned char*, unsigned char*, int, int, int)
+                    1.45%  5.0560us         3  1.6850us  1.5360us  1.9200us  normalize(unsigned char*, unsigned int*, int, unsigned int, unsigned int)
+      API calls:   97.37%  225.45ms         3  75.151ms  2.2820us  225.45ms  cudaStreamCreate
+                    1.60%  3.7024ms         2  1.8512ms  1.8469ms  1.8554ms  cuDeviceTotalMem
+                    0.26%  597.41us         9  66.378us  14.658us  170.33us  cudaMemcpyAsync
+                    0.22%  509.10us       202  2.5200us     203ns  110.07us  cuDeviceGetAttribute
+                    0.15%  352.71us         9  39.189us  2.5490us  183.31us  cudaMalloc
+                    0.13%  301.76us        12  25.147us  3.8910us  127.54us  cudaFree
+                    0.09%  217.49us         3  72.495us  64.695us  85.635us  cudaMemcpy2DAsync
+                    0.08%  189.26us         3  63.087us  2.9290us  179.21us  cudaDeviceSynchronize
+                    0.04%  90.887us         9  10.098us  5.7430us  35.135us  cudaLaunchKernel
+                    0.03%  64.640us         2  32.320us  22.206us  42.434us  cuDeviceGetName
+                    0.02%  50.218us        12  4.1840us  1.6840us  26.161us  cudaStreamSynchronize
+                    0.00%  9.8590us         3  3.2860us  2.9500us  3.8020us  cudaMallocPitch
+                    0.00%  6.0440us         2  3.0220us  2.5070us  3.5370us  cuDeviceGetPCIBusId
+                    0.00%  2.8940us         3     964ns     286ns  1.8980us  cuDeviceGetCount
+                    0.00%  1.4590us         4     364ns     214ns     791ns  cuDeviceGet
+                    0.00%     737ns         2     368ns     331ns     406ns  cuDeviceGetUuid
+
+WITHOUT STREAMS
+==22203== Profiling application: ./Histogram ../lena.png
+==22203== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   58.40%  203.58us         3  67.861us  54.528us  81.631us  histogram(unsigned int*, unsigned char*, unsigned long, int, int)
+                   21.13%  73.664us         3  24.554us  24.352us  24.928us  [CUDA memcpy HtoD]
+                   16.54%  57.664us         9  6.4070us  1.5680us  15.904us  [CUDA memcpy DtoH]
+                    2.49%  8.6720us         3  2.8900us  2.8480us  2.9760us  createImage(unsigned char*, unsigned char*, int, int, int)
+                    1.43%  4.9920us         3  1.6640us  1.5360us  1.8880us  normalize(unsigned char*, unsigned int*, int, unsigned int, unsigned int)
+      API calls:   97.32%  220.10ms         9  24.456ms  2.7620us  219.96ms  cudaMalloc
+                    1.78%  4.0264ms         2  2.0132ms  1.8340ms  2.1924ms  cuDeviceTotalMem
+                    0.26%  583.88us         9  64.875us  14.843us  167.17us  cudaMemcpy
+                    0.23%  510.69us       202  2.5280us     206ns  109.50us  cuDeviceGetAttribute
+                    0.13%  294.10us         3  98.034us  90.650us  104.76us  cudaMemcpy2D
+                    0.13%  288.78us        12  24.064us  3.8000us  134.65us  cudaFree
+                    0.08%  172.56us         3  57.520us  2.9870us  163.01us  cudaDeviceSynchronize
+                    0.04%  85.259us         9  9.4730us  5.4270us  33.683us  cudaLaunchKernel
+                    0.03%  68.072us         2  34.036us  22.544us  45.528us  cuDeviceGetName
+                    0.00%  9.9140us         3  3.3040us  2.6790us  4.0690us  cudaMallocPitch
+                    0.00%  6.0970us         2  3.0480us  2.8440us  3.2530us  cuDeviceGetPCIBusId
+                    0.00%  3.0940us         3  1.0310us     272ns  2.1220us  cuDeviceGetCount
+                    0.00%  1.7380us         4     434ns     206ns  1.1010us  cuDeviceGet
+                    0.00%     704ns         2     352ns     306ns     398ns  cuDeviceGetUuid
