@@ -16,3 +16,10 @@
 * CMake
 * PNG Library
 
+**Output of RGB histogram**
+* From this image
+![alt text](hhttps://github.com/m-trinacty/AP9PV_Tasks/blob/main/Example_8-RGB_histogram/lena.png?raw=true)
+* To this
+![alt text](https://github.com/m-trinacty/AP9PV_Tasks/blob/main/Example_8-RGB_histogram/histRed.png?raw=true)
+![alt text](https://github.com/m-trinacty/AP9PV_Tasks/blob/main/Example_8-RGB_histogram/histGreen.png?raw=true)
+![alt text](https://github.com/m-trinacty/AP9PV_Tasks/blob/main/Example_8-RGB_histogram/histBlue.png?raw=true)
